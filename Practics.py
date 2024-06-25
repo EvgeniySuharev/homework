@@ -1,15 +1,26 @@
-class Building:
-    def __init__(self, numberOfFloors, buildingType):
-        self.numberOfFloors = numberOfFloors
-        self.buildingType = buildingType
-
-    def __eq__(self, other):
-        return self.numberOfFloors == other.numberOfFloors and self.buildingType == other.buildingType
+class Vehicle:
+    vehicle_type = None
 
 
-b1 = Building(15, 'Многоэтажный дом')
-b2 = Building(2, 'Частный дом')
-b3 = Building(2, 'Частный дом')
+class Car:
+    price = 1000000
 
-print(b1 == b2)
-print(b2 == b3)
+    def __init__(self, h_powers):
+        self.h_powers = h_powers
+
+    def horse_powers(self):
+        print(self.h_powers)
+
+
+class Nissan(Car, Vehicle):
+    price = 900000
+    vehicle_type = 'Minivan'
+
+    def __init__(self, h_powers):
+        super().__init__(h_powers)
+
+
+nissan = Nissan(600)
+print(nissan.vehicle_type)
+print(nissan.price)
+nissan.horse_powers()
